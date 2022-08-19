@@ -47,10 +47,11 @@ public class Main {
     int carry = 0;
     int size1 = list1.size();
     int size2 = list2.size();
+    int minimumSize = Math.min(size1, size2);
 
-    for (int i = 0, j = 0; (i < size1 && j < size2); i++, j++) {
+    for (int i = 0; i < minimumSize; i++) {
       Character first = list1.get(i);
-      Character second = list2.get(j);
+      Character second = list2.get(i);
       int sum = (first - '0') + (second - '0') + carry;
 
       if (sum > 9) {
@@ -60,6 +61,39 @@ public class Main {
         carry = 0;
       }
       sumList.add((char) (sum + '0'));
+    }
+
+    if (size1 > minimumSize) {
+      for (int i = 0; i < (size1 - minimumSize); i++) {
+        Character first = list1.get(i);
+        int sum = (first - '0') + carry;
+
+        if (sum > 9) {
+          sum = sum % 10;
+          carry = 1;
+        } else {
+          carry = 0;
+        }
+        sumList.add((char) (sum + '0'));
+      }
+    } else {
+      if (size2 > minimumSize) {
+        for (int i = 0; i < (size2 - minimumSize); i++) {
+          Character second = list2.get(i);
+          int sum = (second - '0') + carry;
+
+          if (sum > 9) {
+            sum = sum % 10;
+            carry = 1;
+          } else {
+            carry = 0;
+          }
+          sumList.add((char) (sum + '0'));
+        }
+      }
+    }
+    if (carry == 1) {
+      sumList.add((char) (carry + '0'));
     }
     return sumList;
   }
