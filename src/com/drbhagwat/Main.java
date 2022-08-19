@@ -33,12 +33,12 @@ public class Main {
   }
 
   /**
-   * Given two lists, this method adds each digit stored in successive nodes
-   * of those lists, creates a new list, and stores the result into that new
-   * list
+   * Given two lists, this method adds each digit stored in
+   * successive nodes of those lists, creates a new list, and
+   * stores the result into that new list
    *
-   * @param list1 - first list, representing the first integer backwards
-   * @param list2 - second list, representing the second integer backwards
+   * @param list1 - first list, represents the first integer backwards
+   * @param list2 - second list, represents the second integer backwards
    * @return - the sum representing the sum, backwards
    */
   public static List<Character> add(List<Character> list1,
@@ -64,6 +64,7 @@ public class Main {
     }
 
     if (size1 > minimumSize) {
+
       for (int i = 0; i < (size1 - minimumSize); i++) {
         Character first = list1.get(i);
         int sum = (first - '0') + carry;
@@ -77,6 +78,7 @@ public class Main {
         sumList.add((char) (sum + '0'));
       }
     } else {
+
       if (size2 > minimumSize) {
         for (int i = 0; i < (size2 - minimumSize); i++) {
           Character second = list2.get(i);
