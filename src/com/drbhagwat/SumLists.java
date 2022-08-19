@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class SumLists {
   /**
    * Given an integer, this method extracts each digit of that integer
    * and stores them into successive nodes of a linked list.
@@ -12,7 +12,7 @@ public class Main {
    * @param i    - an integer - should not be negative
    * @param list - a list where you want to store each digit of the integer
    */
-  public static void addIntToList(int i, List<Character> list) {
+  private static void addIntToList(int i, List<Character> list) {
     if ((i < 0) || (list == null)) {
       throw new IllegalArgumentException("The given integer should be >=0 " +
           "and the list should not be null");
@@ -32,14 +32,15 @@ public class Main {
   }
 
   /**
-   * Given two lists, this method adds each digit stored in successive nodes
-   * of those lists and stores the result into that new list
+   * Given two lists, this method adds each digit stored in
+   * successive nodes of those lists and stores the result into
+   * that new list
    *
    * @param list1 - first list, represents the first integer backwards
    * @param list2 - second list, represents the second integer backwards
    * @return - the new list, representing the sum, backwards
    */
-  public static List<Character> add(List<Character> list1,
+  private static List<Character> add(List<Character> list1,
                                     List<Character> list2) {
     List<Character> sumList = new LinkedList<>();
     int carry = 0;
